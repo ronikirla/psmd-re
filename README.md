@@ -7,7 +7,7 @@
 - Damage formula
 
 ## How to import the Ghidra project XML
-1. Obtain the game ROM by for example dumping the cartridge using [GodMode9](https://github.com/d0k3/GodMode9).
+1. Obtain the game ROM (US version) by for example dumping the cartridge using [GodMode9](https://github.com/d0k3/GodMode9).
 2. Extract the ExeFS of the rom using a tool such as [.Net 3DS toolkit](https://projectpokemon.org/home/forums/topic/39082-net-3ds-toolkit-extract-and-repack-3ds-roms-and-cias/) .
 3. Convert the 3DS executable into an ELF using [ctr-elf](https://github.com/archshift/ctr-elf). MD-5 checksum should be `818A4462B4D1977D2135AEC37956A375`.
 4. Create a new Ghidra project, import the ELF-file, but do not analyze the file.
