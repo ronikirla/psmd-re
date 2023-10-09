@@ -13,7 +13,7 @@
 4. Create a new Ghidra project, import the ELF-file, but do not analyze the file.
 5. Go to File -> Add to program and choose the XML-file from this repository.
 
-Unfortunately, the importable symbols don't contain variable names at the time being.
+Unfortunately, the variable names I have defined are not properly exported and are not importable for the time being.
 
 ## Other tools used
 
