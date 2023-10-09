@@ -1,0 +1,23 @@
+
+int speed_compare_acc(int *attacker_struct,int *target_struct)
+
+{
+  int i;
+  float attacker_speed;
+  float target_speed;
+  float modifier;
+  
+  attacker_speed = (float)(**(code **)(*attacker_struct + 0x4f0))(attacker_struct);
+  target_speed = (float)(**(code **)(*target_struct + 0x4f0))(target_struct);
+  i = 4;
+  do {
+    if ((&speed_ratio_thresholds_accuracy)[i] <= attacker_speed / target_speed) {
+      modifier = (float)(longlong)(&accuracy_stage_speed_modifier)[i];
+      goto LAB_00712064;
+    }
+    i = i + -1;
+  } while (0 < i);
+  modifier = -5.0;
+LAB_00712064:
+  return (uint)(0.0 < modifier) * (int)modifier;
+}

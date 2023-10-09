@@ -1,0 +1,27 @@
+
+float attack_power_damage(float move_power,int *self,int param_3,int *target,undefined4 param_5_00,
+                         undefined4 param_6)
+
+{
+  int some_check;
+  float attack;
+  float modifier;
+  
+  attack = (float)(**(code **)(*self + 0x208))(self);
+  modifier = (float)(**(code **)(*self + 0x4d4))(self,target);
+  attack = attack + move_power * modifier;
+  some_check = (**(code **)(*target + 0x694))(target,0x57);
+  if (((some_check == 0) ||
+      (some_check = FUN_00709750(self,param_5_00,param_6,target,0,1), some_check != 0)) ||
+     (param_3 == 0x184)) {
+    some_check = FUN_00709fc4(target,param_3,self,param_5_00,param_6,0);
+    if (some_check == 0) {
+      modifier = (float)(**(code **)(*self + 0x260))(self);
+    }
+    else {
+      modifier = 0.85;
+    }
+    attack = modifier * attack;
+  }
+  return attack;
+}

@@ -1,0 +1,9 @@
+
+float calc_multiplier(int *param_1)
+
+{
+  int stage;
+  
+  stage = (**(code **)(*param_1 + 0x54c))(param_1);
+  return (&attack_stages)[stage];
+}

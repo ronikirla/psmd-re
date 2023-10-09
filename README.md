@@ -13,7 +13,8 @@
 4. Create a new Ghidra project, import the ELF-file, but do not analyze the file.
 5. Go to File -> Add to program and choose the XML-file from this repository.
 
-Unfortunately, the variable names I have defined are not properly exported and are not importable for the time being.
+Unfortunately, since Ghidra doesn't export local variable names for some reason, the only way for me to share them is by
+sharing the decompiled output of the well-annotated functions as text-files. They can be found in this repository.
 
 ## Other tools used
 

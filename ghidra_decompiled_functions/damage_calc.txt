@@ -1,0 +1,133 @@
+
+int damage_calc(int *self,int *target,short *param_3)
+
+{
+  char cVar1;
+  int iVar2;
+  undefined4 uVar3;
+  int self_level;
+  int target_level;
+  int level_modifier_index;
+  int rng;
+  code *pcVar4;
+  float defense;
+  float defense_stage;
+  float final_damage;
+  int rounded_damage;
+  float attack_stage;
+  float move_power;
+  float attack_power;
+  undefined local_54 [4];
+  float multiplier;
+  undefined local_4c;
+  undefined local_4b;
+  undefined4 local_48;
+  undefined4 uStack_44;
+  undefined4 uStack_40;
+  undefined4 local_3c;
+  undefined4 uStack_38;
+  undefined4 uStack_34;
+  
+  attack_power = 1.0;
+  local_4c = 0;
+  local_4b = 0;
+  attack_stage = attack_power;
+  defense = attack_power;
+  defense_stage = attack_power;
+  if (*param_3 == 0) {
+    local_54[0] = 2;
+    multiplier = 1.0;
+    goto LAB_006a4d94;
+  }
+  get_multiplier(&local_3c,self,target,(int)param_3 + 5,(int)*(char *)(param_3 + 8),
+                 *(undefined *)((int)param_3 + 7),(int)*(char *)(param_3 + 10));
+  local_48 = local_3c;
+  uStack_44 = uStack_38;
+  uStack_40 = uStack_34;
+  some_common_setter(local_54,&local_48,10);
+  move_power = (float)(longlong)*(int *)(param_3 + 4);
+  *(undefined *)(param_3 + 9) = local_4c;
+  *(undefined *)((int)param_3 + 0x13) = local_4b;
+  iVar2 = FUN_0027f940(*param_3);
+  if (iVar2 == 0) {
+LAB_006a4cd4:
+    uVar3 = FUN_0070e928(param_3);
+    attack_power = (float)(**(code **)(*self + 0x4dc))
+                                    (move_power,self,*param_3,target,uVar3,
+                                     (int)*(char *)(param_3 + 10));
+    uVar3 = FUN_0070e928(param_3);
+    defense = (float)(**(code **)(*target + 0x4e0))(target,self,uVar3,(int)*(char *)(param_3 + 10));
+    uVar3 = FUN_0070e928(param_3);
+    attack_stage = (float)(**(code **)(*self + 0x500))
+                                    (self,param_3[1],target,uVar3,(int)*(char *)(param_3 + 10));
+    uVar3 = FUN_0070e928(param_3);
+    defense_stage =
+         (float)(**(code **)(*target + 0x504))(target,self,uVar3,(int)*(char *)(param_3 + 10));
+    local_54[0] = 2;
+    multiplier = 1.0;
+  }
+  else {
+    if (iVar2 == 1) {
+      uVar3 = FUN_0070e928(param_3);
+      attack_power = (float)(**(code **)(*self + 0x4dc))
+                                      (move_power,self,*param_3,target,uVar3,
+                                       (int)*(char *)(param_3 + 10));
+      uVar3 = FUN_0070e928(param_3);
+      attack_stage = (float)(**(code **)(*self + 0x500))
+                                      (self,param_3[1],target,uVar3,(int)*(char *)(param_3 + 10));
+      cVar1 = *(char *)((int)param_3 + 0x11);
+    }
+    else {
+      if (iVar2 != 2) {
+        if (iVar2 != 4) goto LAB_006a4d94;
+        goto LAB_006a4cd4;
+      }
+      uVar3 = FUN_0070e928(param_3);
+      attack_power = (float)(**(code **)(*self + 0x4e8))
+                                      (move_power,self,*param_3,target,uVar3,
+                                       (int)*(char *)(param_3 + 10));
+      uVar3 = FUN_0070e928(param_3);
+      attack_stage = (float)(**(code **)(*self + 0x508))
+                                      (self,param_3[1],target,uVar3,(int)*(char *)(param_3 + 10));
+      cVar1 = *(char *)((int)param_3 + 0x11);
+    }
+    if (cVar1 == '\0') {
+      uVar3 = FUN_0070e928(param_3);
+      defense = (float)(**(code **)(*target + 0x4e0))
+                                 (target,self,uVar3,(int)*(char *)(param_3 + 10));
+      uVar3 = FUN_0070e928(param_3);
+      pcVar4 = *(code **)(*target + 0x504);
+    }
+    else {
+      uVar3 = FUN_0070e928(param_3);
+      defense = (float)(**(code **)(*target + 0x4ec))
+                                 (target,self,uVar3,(int)*(char *)(param_3 + 10));
+      uVar3 = FUN_0070e928(param_3);
+      pcVar4 = *(code **)(*target + 0x50c);
+    }
+    defense_stage = (float)(*pcVar4)(target,self,uVar3,(int)*(char *)(param_3 + 10));
+  }
+LAB_006a4d94:
+  attack_power = (attack_power - 0.5 * (defense / 2.0)) - 0;
+  if (attack_power < 0.0) {
+    attack_power = 0.0;
+  }
+  attack_power = multiplier * attack_power;
+  self_level = (**(code **)(*self + 0x1c4))(self);
+  target_level = (**(code **)(*target + 0x1c4))(target);
+  level_modifier_index = get_modifier_index(self_level - target_level,10);
+  attack_power = (&level_damage_modifier)[level_modifier_index + 10] * attack_power;
+  rng = FUN_002a3980(self[0x5c],250);
+  *(undefined *)(param_3 + 2) = local_54[0];
+  attack_power = attack_power + (float)(longlong)(rng + -125) * 0.001 * attack_power + 0.4;
+  attack_stage = (float)(longlong)(int)((uint)(0.0 < attack_power) * (int)attack_power) *
+                 attack_stage;
+  final_damage = (float)(longlong)(int)((uint)(0.0 < attack_stage) * (int)attack_stage) *
+                 defense_stage;
+  rounded_damage = (uint)(0.0 < final_damage) * (int)final_damage;
+  if (rounded_damage < 1) {
+    rounded_damage = 0;
+  }
+  return rounded_damage;
+}
+
