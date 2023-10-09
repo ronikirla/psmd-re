@@ -3,8 +3,8 @@
 **My findings while reverse-engineering Pokémon Super Mystery Dungeon for the 3DS. Includes writeups for discovered game mechanics and an importable Ghidra project XML that includes variable and function names etc.**
 
 ## Current major discoveries
-- Speed stat mechanics
-- Damage formula
+- [Speed stat mechanics](Speed%20mechanics.md)
+- [Damage formula](Damage%20formula.md)
 
 ## How to import the Ghidra project XML
 1. Obtain the game ROM (US version) by for example dumping the cartridge using [GodMode9](https://github.com/d0k3/GodMode9).
