@@ -10,7 +10,7 @@ Where:
 
 `attack_power = (attack + move_power * speed_modifier) * some_modifier`
 
-`speed_modifier` is explained in [my speed mechanics breakdown](Speed mechanics.md)
+`speed_modifier` is explained in [my speed mechanics breakdown](Speed%20mechanics.md)
 `some_modifier` was always 1 in my testing but had for example a conditional for 0.85 for physical attacks specifically, could be burn etc.?
 
 `type_modifier = stab * type_1 * type_2 * 0.925^4` normally\
