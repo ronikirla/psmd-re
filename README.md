@@ -16,4 +16,4 @@
 ## Other tools used
 
 - [CTRPluginFramework3DS](https://www.gamebrew.org/wiki/CTRPluginFramework_3DS) to perform narrowing RAM searches for values. These memory addresses can then be used as watchpoints for finding relevant functions in the code.
-- The GDB stub in the [Luma 3DS custom firmware](https://github.com/LumaTeam/Luma3DS) to perform active analysis, i.e debug the game on console.
+- The GDB stub in the [Luma 3DS custom firmware](https://github.com/LumaTeam/Luma3DS) to perform active analysis, i.e. debug the game on console.
