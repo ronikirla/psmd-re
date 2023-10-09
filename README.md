@@ -1,6 +1,6 @@
 
 # psmd-re
-**My findings while reverse-engineering Pokémon Super Mystery Dungeon for the 3DS. Includes writeups for discovered game mechanics and an importable Ghidra project XML that includes variable and function names etc.**
+**My findings while reverse-engineering Pokémon Super Mystery Dungeon for the 3DS. Includes writeups for discovered game mechanics and an importable Ghidra project XML that includes function names etc.**
 
 ## Current major discoveries
 - [Speed stat mechanics](Speed%20mechanics.md)
@@ -12,6 +12,8 @@
 3. Convert the 3DS executable into an ELF using [ctr-elf](https://github.com/archshift/ctr-elf). MD-5 checksum should be `818A4462B4D1977D2135AEC37956A375`.
 4. Create a new Ghidra project, import the ELF-file, but do not analyze the file.
 5. Go to File -> Add to program and choose the XML-file from this repository.
+
+Unfortunately, the importable symbols don't contain variable names at the time being.
 
 ## Other tools used
 
