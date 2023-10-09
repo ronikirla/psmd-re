@@ -13,14 +13,14 @@ Where:
 `speed_modifier` was explained in my post about speed mechanics
 `some_modifier` was always 1 in my testing but had for example a conditional for 0.85 for physical attacks specifically, could be burn etc.?
 
-`type_modifier = stab * type_1 * type_2 * 0.925^4` normally
+`type_modifier = stab * type_1 * type_2 * 0.925^4` normally\
 `                1` in an NVE alliance
 
-`stab = 1.2` if applicable, `1` otherwise
-ineffective: `0`
-not very effective: `0.81`
-regular effective: `0.925`
-super effective: `1.1`
+`stab = 1.2` if applicable, `1` otherwise\
+ineffective: `0`\
+not very effective: `0.81`\
+regular effective: `0.925`\
+super effective: `1.1`\
 
 This part makes very little sense, but it also explains why NVE alliances are super powerful. For some reason the regular effective multiplier is below 1 and not only that but the game basically checks for these multipliers six times, despite there only being two types. I have no idea why, I didn't find any case where those multipliers would be anything other than regular effective, hence the 0.925^4. This causes the type multiplier to always be significantly below 1, so NVE alliances just straight up setting the value to 1 cause the insane damage boost. Also it renders stab irrelevant.
 
