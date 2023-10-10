@@ -1,5 +1,5 @@
 
-# Speed mechanics
+# Damage formula
 **This document explains the damage formula of the game in depth. For the most part it seems to be a pretty typical additive PMD damage formula. However, it has some weird quirks.**
 
 ## Formula breakdown
